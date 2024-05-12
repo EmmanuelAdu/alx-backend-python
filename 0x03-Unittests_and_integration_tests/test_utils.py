@@ -12,9 +12,7 @@ from utils import access_nested_map
 
 
 class TestAccessNestedMap(unittest.TestCase):
-    '''
-    Test cases for accessing values from nested maps
-    '''
+    '''Test cases for accessing values from nested maps'''
 
     @parameterized.expand([
         ({"a": 1}, ("a",), 1),
