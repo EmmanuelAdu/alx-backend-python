@@ -27,6 +27,6 @@ class TestAccessNestedMap(unittest.TestCase):
             nested_map: Dict,
             path: Tuple[str],
             expected: Union[Dict, int],
-        ) -> None:
+    ) -> None:
         '''Tests `access_nested_map`'s output'''
         self.assertEqual(access_nested_map(nested_map, path), expected)
