@@ -2,6 +2,7 @@ import time
 import sqlite3 
 import functools
 
+
 #### paste your with_db_decorator here
 def with_db_connection(func):
     """ Decorator to connect to database
