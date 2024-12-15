@@ -13,7 +13,7 @@ class DatabaseConnection:
         return self.connection.cursor()
     
 
-    def __exit__(self, exc_type, exc_value):
+    def __exit__(self, exc_type, exc_value, traceback):
         """Close the database connection"""
         if self.connection:
             self.connection.commit()
