@@ -34,6 +34,7 @@ class ConversationViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(conversation)
         return Response(serializer.data, status=201)
 
+
 class MessageViewSet(viewsets.ModelViewSet):
     """
     ViewSet for listing, creating, and retrieving messages.
