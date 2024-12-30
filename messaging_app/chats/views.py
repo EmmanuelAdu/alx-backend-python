@@ -5,6 +5,9 @@ from django.shortcuts import get_object_or_404
 from .models import Conversation, Message
 from .serializers import ConversationSerializer, MessageSerializer
 from django.contrib.auth import get_user_model
+from rest_framework.permissions import IsAuthenticated
+from .permissions import IsOwnerOrReadOnly
+
 
 User = get_user_model()
 
@@ -12,6 +15,7 @@ class ConversationViewSet(viewsets.ModelViewSet):
     """
     ViewSet for listing, creating, and retrieving conversations.
     """
+    permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
     queryset = Conversation.objects.all()
     serializer_class = ConversationSerializer
     filter_backends = [filters.OrderingFilter]
@@ -39,6 +43,7 @@ class MessageViewSet(viewsets.ModelViewSet):
     """
     ViewSet for listing, creating, and retrieving messages.
     """
+    permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
     queryset = Message.objects.all()
     serializer_class = MessageSerializer
     filter_backends = [filters.OrderingFilter]
